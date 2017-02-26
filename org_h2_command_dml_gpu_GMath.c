@@ -4,6 +4,8 @@
 
 extern float cudaSum(float *array, int lenth);
 
+extern float cudaMax(float *array, int lenth);
+
 extern void cudaMemAlloc(long size);
 
 extern void cudaMemFree();
@@ -25,6 +27,26 @@ JNIEXPORT jfloat JNICALL Java_org_h2_command_dml_gpu_GMath_cudaSum
 
     return result;
 }
+
+
+/*
+ * Class:     org_h2_command_dml_gpu_GMath
+ * Method:    cudaMax
+ * Signature: ([FI)F
+ */
+JNIEXPORT jfloat JNICALL Java_org_h2_command_dml_gpu_GMath_cudaMax
+        (JNIEnv *env, jclass class, jfloatArray array, jint size){
+    printf("h2cuda max function call (%d).\n", size);
+
+    float result;
+
+    jfloat *floatArrayPtr = (*env)->GetFloatArrayElements(env, array, 0);
+
+    result = cudaMax(floatArrayPtr, size);
+
+    return result;
+}
+
 
 /*
  * Class:     org_h2_command_dml_gpu_GMath

@@ -17,19 +17,11 @@ JNIEXPORT jfloat JNICALL Java_org_h2_command_dml_gpu_GMath_cudaSum
 
 /*
  * Class:     org_h2_command_dml_gpu_GMath
- * Method:    cudaMemAlloc
- * Signature: (J)V
+ * Method:    cudaMax
+ * Signature: ([FI)F
  */
-JNIEXPORT void JNICALL Java_org_h2_command_dml_gpu_GMath_cudaMemAlloc
-  (JNIEnv *, jclass, jlong);
-
-/*
- * Class:     org_h2_command_dml_gpu_GMath
- * Method:    cudaMemFree
- * Signature: ()V
- */
-JNIEXPORT void JNICALL Java_org_h2_command_dml_gpu_GMath_cudaMemFree
-  (JNIEnv *, jclass);
+JNIEXPORT jfloat JNICALL Java_org_h2_command_dml_gpu_GMath_cudaMax
+  (JNIEnv *, jclass, jfloatArray, jint);
 
 #ifdef __cplusplus
 }
